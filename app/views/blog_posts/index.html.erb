@@ -1,0 +1,12 @@
+<h1>My awesome blog</h1>
+
+<!-- This one just uses all ruby stuff but does not render it -->
+<% 1 %>
+
+<!-- This one render all ruby stuff in HTML -->
+<%= 2 %>
+
+<% @blog_posts.each do |blog_post| %> <!-- not rendered -->
+    <h2> <%= blog_post.title %> </h2> <!-- rendered -->
+    <h2> <%= blog_post.body %> </h2> <!-- rendered -->
+<% end %> <!-- not rendered -->
