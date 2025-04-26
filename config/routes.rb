@@ -13,6 +13,16 @@ Rails.application.routes.draw do
   root "blog_posts#index"
 
   # Handling blog posts actions
+  # Important! All actions are handled from up to bottom!
+
+  # NEW SECTION
+
+  get "/blog_posts/new", to: "blog_posts#new", as: :new_blog_post
+  post "/blog_posts", to: "blog_posts#create", as: :blog_posts
+
+  # /NEW SECTION
+
+  # SHOW SECTION
 
   get "/blog_posts/:id", to: "blog_posts#show", as: :blog_post
 
@@ -20,6 +30,8 @@ Rails.application.routes.draw do
   # blog_post_path(ID) e.g. blog_post_path(1) -> "/blog_posts/1"
   # blog_post_url(1) -> "http://blabla/blog_posts/1"
   # these methods are available in views!
+
+  # /SHOW SECTION
 
   # post
   # put
