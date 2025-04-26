@@ -11,4 +11,18 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   root "blog_posts#index"
+
+  # Handling blog posts actions
+
+  get "/blog_posts/:id", to: "blog_posts#show", as: :blog_post
+
+  # "as" generates following helper methods:
+  # blog_post_path(ID) e.g. blog_post_path(1) -> "/blog_posts/1"
+  # blog_post_url(1) -> "http://blabla/blog_posts/1"
+  # these methods are available in views!
+
+  # post
+  # put
+  # patch
+  # delete
 end

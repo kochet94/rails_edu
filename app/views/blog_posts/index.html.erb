@@ -1,12 +1,20 @@
 <h1>My awesome blog</h1>
 
 <!-- This one just uses all ruby stuff but does not render it -->
-<% 1 %>
+<!-- <% 1 %> -->
 
 <!-- This one render all ruby stuff in HTML -->
-<%= 2 %>
+<!-- <%= 2 %> -->
 
 <% @blog_posts.each do |blog_post| %> <!-- not rendered -->
-    <h2> <%= blog_post.title %> </h2> <!-- rendered -->
-    <h2> <%= blog_post.body %> </h2> <!-- rendered -->
+    <div>
+        <!--  blog_post_url() is determined in routes -->
+        <!--  blog_post_url() requres id and the right way is to pass blog_post.id to the method -->
+        <!--  but rails understand that the argument is ActiveRecord action an resolve it (blog_post_path(blog_post)) -->
+        <!--  but this is not it. Rails is THAT SMART that it resolves link directly from object -->
+        <!--  if blog_post is an ActiveRecord object and there exists blog_post_path() method. -->
+
+        <h2> <%= link_to blog_post.title, blog_post %> </h2> <!-- rendered -->
+        <h2> <%= blog_post.body %> </h2> <!-- rendered -->
+    </div>
 <% end %> <!-- not rendered -->
