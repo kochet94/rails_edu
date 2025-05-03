@@ -33,6 +33,13 @@ Rails.application.routes.draw do
 
   # /SHOW SECTION
 
+  # EDIT SECTION
+
+  get "/blog_posts/:id/edit", to: "blog_posts#edit", as: :edit_blog_post
+  patch "/blog_posts/:id", to: "blog_posts#update"
+
+  # /EDIT SECTION
+
   # post
   # put
   # patch
