@@ -17,14 +17,14 @@ Rails.application.routes.draw do
 
   # NEW SECTION
 
-  get "/blog_posts/new", to: "blog_posts#new", as: :new_blog_post
-  post "/blog_posts", to: "blog_posts#create", as: :blog_posts
+  # get "/blog_posts/new", to: "blog_posts#new", as: :new_blog_post
+  # post "/blog_posts", to: "blog_posts#create", as: :blog_posts
 
   # /NEW SECTION
 
   # SHOW SECTION
 
-  get "/blog_posts/:id", to: "blog_posts#show", as: :blog_post
+  # get "/blog_posts/:id", to: "blog_posts#show", as: :blog_post
 
   # "as" generates following helper methods:
   # blog_post_path(ID) e.g. blog_post_path(1) -> "/blog_posts/1"
@@ -35,8 +35,9 @@ Rails.application.routes.draw do
 
   # EDIT SECTION
 
-  get "/blog_posts/:id/edit", to: "blog_posts#edit", as: :edit_blog_post
-  patch "/blog_posts/:id", to: "blog_posts#update"
+  # get "/blog_posts/:id/edit", to: "blog_posts#edit", as: :edit_blog_post
+  # patch "/blog_posts/:id", to: "blog_posts#update"
+  # delete "/blog_posts/:id", to: "blog_posts#destroy"
 
   # /EDIT SECTION
 
@@ -44,4 +45,7 @@ Rails.application.routes.draw do
   # put
   # patch
   # delete
+
+  # Helper which replaces all stuff related to blog_posts
+  resources :blog_posts
 end
