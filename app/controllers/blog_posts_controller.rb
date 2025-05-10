@@ -1,5 +1,6 @@
 class BlogPostsController < ApplicationController
   # before_action is used as pre-trigger before calling method of interest
+  before_action :authenticate_user!, except: [ :index, :show ]
   before_action :set_blog_post, except: [ :index, :new, :create ]
 
 
@@ -13,7 +14,7 @@ class BlogPostsController < ApplicationController
   end
 
   def new
-    @blog_post = BlogPost.new
+      @blog_post = BlogPost.new
   end
 
   def create
@@ -49,5 +50,9 @@ class BlogPostsController < ApplicationController
 
   def blog_post_params
     params.require(:blog_post).permit(:title, :body)
+  end
+
+  def authenticate_user!
+    redirect_to new_user_session_path, alert: "Please, sign in!" unless user_signed_in?
   end
 end
